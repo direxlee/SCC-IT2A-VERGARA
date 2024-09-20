@@ -1,0 +1,32 @@
+class Product {
+    int productId;
+    String name;
+    double price;
+    int stocks;
+    String status;
+    double totalProductValue;
+
+    public Product(int productId, String name, double price, int stocks) {
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+        this.stocks = stocks;
+        this.status = (stocks > 0) ? "Available" : "Out of Stock";
+        this.totalProductValue = price * stocks;
+    }
+
+    public void displayProductDetails() {
+        System.out.println(productId + "\t\t" + name + "\t" + price + "\t\t" + stocks + "\t\t" + status + "\t" + totalProductValue);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Product product1 = new Product(10011, "Soap", 20, 10);
+        Product product2 = new Product(10012, "Cards", 50, 0);
+
+        System.out.println("Product Id\tName\tPrice\tStocks\tStatus\t\tTotal Product Value");
+        product1.displayProductDetails();
+        product2.displayProductDetails();
+    }
+}
